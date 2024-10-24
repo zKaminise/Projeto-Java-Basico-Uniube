@@ -2,6 +2,7 @@ package com.example.JavaProjectUniube.Main;
 
 import com.example.JavaProjectUniube.Entity.Autor;
 import com.example.JavaProjectUniube.Entity.Livro;
+import com.example.JavaProjectUniube.Entity.LivroInfantil;
 import com.example.JavaProjectUniube.Service.Biblioteca;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -20,10 +21,11 @@ public class JavaProjectUniubeApplication {
 			System.out.println("Menu:");
 			System.out.println("1. Cadastrar Autor");
 			System.out.println("2. Cadastrar Livro");
-			System.out.println("3. Listar Autores");
-			System.out.println("4. Listar Livros");
-			System.out.println("5. Consultar Livro por Título");
-			System.out.println("6. Sair");
+			System.out.println("3. Cadastrar Livro Infantil");
+			System.out.println("4. Listar Autores");
+			System.out.println("5. Listar Livros");
+			System.out.println("6. Consultar Livro por Título");
+			System.out.println("7. Sair");
 
 			int opcao = scanner.nextInt();
 			scanner.nextLine();
@@ -58,14 +60,36 @@ public class JavaProjectUniubeApplication {
 					}
 					break;
 				case 3:
+					System.out.println("Título do Livro Infantil");
+					String tituloInfantil = scanner.nextLine();
+					System.out.println("Nome do Autor:");
+					String nomeDoAutorInfantil = scanner.nextLine();
+					Autor autorDoLivroInfantil = bAutores.buscarItem(nomeDoAutorInfantil,
+							(Autor a, String nome) -> a.getNome().equalsIgnoreCase(nome));
+
+					if (autorDoLivroInfantil != null) {
+						System.out.println("Ano de Publicação:");
+						int anoPublicacaoInfantil = scanner.nextInt();
+						System.out.println("Está disponível? (true/false):");
+						boolean disponivelInfantil = scanner.nextBoolean();
+						scanner.nextLine();
+						System.out.println("Faixa Etária:");
+						String faixaEtaria = scanner.nextLine();
+						LivroInfantil livroInfantil = new LivroInfantil(tituloInfantil, disponivelInfantil, anoPublicacaoInfantil, autorDoLivroInfantil, faixaEtaria);
+						bLivros.adicionarItem(livroInfantil);
+					} else {
+						System.out.println("Autor Não Encontrado. Cadastre o Autor Primeiro.");
+					}
+					break;
+				case 4:
 					System.out.println("Lista de Autores:");
 					bAutores.listarItens();
 					break;
-				case 4:
+				case 5:
 					System.out.println("Lista de Livros:");
 					bLivros.listarItens();
 					break;
-				case 5:
+				case 6:
 					System.out.println("Digite o título do livro:");
 					String tituloLivro = scanner.nextLine();
 					Livro livroEncontrado = bLivros.buscarItem(tituloLivro,
@@ -77,7 +101,7 @@ public class JavaProjectUniubeApplication {
 						System.out.println("Livro não encontrado.");
 					}
 					break;
-				case 6:
+				case 7:
 					System.out.println("Saindo...");
 					return;
 				default:
