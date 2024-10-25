@@ -32,7 +32,7 @@ public class JavaProjectUniubeApplication {
 
 			switch (opcao) {
 				case 1:
-					System.out.println("Nome do Autor");
+					System.out.println("Nome do Autor:");
 					String nomeAutor = scanner.nextLine();
 					System.out.println("Nacionalidade do Autor:");
 					String nacionalidade = scanner.nextLine();

@@ -49,9 +49,9 @@ public class Livro {
 
     @Override
     public String toString() {
-        return "Livro: " + titulo +
-                ", Autor: " + autor.getNome() +
-                ", Ano de Publicação: " + anoPublicacao +
-                ", Disponivel: " + (disponivel ? "Sim" : "Não");
+        return "\n Livro: " + titulo +
+                "\n Autor: " + autor.getNome() +
+                "\n Ano de Publicação: " + anoPublicacao +
+                "\n Disponivel: " + (disponivel ? "Sim" : "Não");
     }
 }

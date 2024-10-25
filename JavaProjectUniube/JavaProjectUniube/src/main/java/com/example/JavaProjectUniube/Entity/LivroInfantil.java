@@ -18,6 +18,6 @@ public class LivroInfantil extends Livro{
 
     @Override
     public String toString() {
-        return super.toString() + ", Faixa Etária: " + faixaEtaria;
+        return super.toString() + "\n Faixa Etária: " + faixaEtaria;
     }
 }
