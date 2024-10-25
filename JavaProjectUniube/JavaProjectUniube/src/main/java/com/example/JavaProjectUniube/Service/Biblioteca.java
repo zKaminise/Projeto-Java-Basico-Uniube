@@ -20,6 +20,10 @@ public class Biblioteca<T> {
         }
     }
 
+    public interface Identificavel<T> {
+        boolean identificar(T item, String criterio);
+    }
+
     public T buscarItem(String criterio, Identificavel<T> identificador) {
         for (T item : itens) {
             if ( identificador.identificar(item, criterio)) {
@@ -27,10 +31,6 @@ public class Biblioteca<T> {
             }
         }
         return null;
-    }
-
-    public interface Identificavel<T> {
-        boolean identificar(T item, String criterio);
     }
 
 }

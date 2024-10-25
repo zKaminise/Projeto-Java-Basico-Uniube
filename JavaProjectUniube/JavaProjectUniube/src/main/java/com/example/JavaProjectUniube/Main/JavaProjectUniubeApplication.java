@@ -45,7 +45,7 @@ public class JavaProjectUniubeApplication {
 					System.out.println("Nome do Autor:");
 					String nomeDoAutor = scanner.nextLine();
 					Autor autorDoLivro = bAutores.buscarItem(nomeDoAutor,
-							(Autor a, String nome) -> a.getNome().equalsIgnoreCase(nome));
+							(Autor autorNome, String nome) -> autorNome.getNome().equalsIgnoreCase(nome));
 
 					if (autorDoLivro != null) {
 						System.out.println("Ano de Publicação:");
@@ -65,7 +65,7 @@ public class JavaProjectUniubeApplication {
 					System.out.println("Nome do Autor:");
 					String nomeDoAutorInfantil = scanner.nextLine();
 					Autor autorDoLivroInfantil = bAutores.buscarItem(nomeDoAutorInfantil,
-							(Autor a, String nome) -> a.getNome().equalsIgnoreCase(nome));
+							(Autor autorNomeInfantil, String nome) -> autorNomeInfantil.getNome().equalsIgnoreCase(nome));
 
 					if (autorDoLivroInfantil != null) {
 						System.out.println("Ano de Publicação:");
